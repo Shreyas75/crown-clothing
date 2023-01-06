@@ -8,6 +8,8 @@ import {
     createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
+
+
 const defaultformFields = {
     displayName: "",
     email: "",
@@ -19,7 +21,6 @@ const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultformFields);
     const { displayName, email, password, confirmPassword } = formFields;
 
-    console.log(formFields);
 
     const resetFormFields = () => {
         setFormFields(defaultformFields);
@@ -38,6 +39,8 @@ const SignUpForm = () => {
                 email,
                 password
             );
+
+
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFields();
         } catch (error) {
